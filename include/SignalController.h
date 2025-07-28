@@ -1,5 +1,8 @@
 #ifndef SIGNALCONTROLLER_H
 #define SIGNALCONTROLLER_H
+#include "Track.h"
+#include <map>
+#include <vector>
 
 /**
  *  SignalController
@@ -12,20 +15,26 @@
 You can imagine it has access to all tracks and trains.
  */
 
+enum Signal
+{
+    RED,
+    YELLOW,
+    GREEN
+};
+
 class SignalController
 {
 private:
-    enum Signal
-    {
-        RED,
-        YELLOW,
-        GREEN
-    };
+    std::map<int, Signal> trackSignals; // Maps track ID to signal state
+    std::map<int, Track *> tracks;      // Maps track ID to Track pointer
 
 public:
     SignalController();
     bool isSafeToEnter(int trackId);
     bool isNextTrackFree(int trackId);
+    void setSignal(int trackId, Signal signal);
+    Signal getSignal(int trackId);
+    void addTrack(int trackId, Track *track);
 };
 
 #endif

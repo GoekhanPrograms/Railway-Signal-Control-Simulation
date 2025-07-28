@@ -23,3 +23,13 @@ bool Track::getIsOccupied()
 {
     return isOccupied;
 }
+
+void Track::setOccupied(bool isOccupied)
+{
+    this->isOccupied = isOccupied;
+}
+
+int Track::getTrackId()
+{
+    return trackId;
+}

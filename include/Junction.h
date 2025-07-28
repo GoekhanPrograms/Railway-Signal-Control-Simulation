@@ -12,7 +12,7 @@ class Junction
 {
 private:
     int id;
-    vector<int> connectedJunctions;
+    vector<int> connectedJunctions; // based on trackIds
     int shortestRouteDistance;
     SignalController *signal;
 

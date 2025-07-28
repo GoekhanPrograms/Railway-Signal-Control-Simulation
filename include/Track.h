@@ -25,6 +25,8 @@ private:
 public:
     Track(int id);
     bool getIsOccupied();
+    void setOccupied(bool isOccupied);
+    int getTrackId();
 };
 
 #endif

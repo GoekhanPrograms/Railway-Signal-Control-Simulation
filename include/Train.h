@@ -11,14 +11,12 @@ private:
     string destination;
 
 public:
-    Train(int id, int position, string destination);
+    Train(int id, Track *currentTrack, string destination);
     void move(int distance);
-    int getPosition();
+    Track &getCurrentTrack();
     int getId();
     string getDestination();
     void setDestination(string destination);
-    void setPosition(int position);
-    ~Train();
 };
 
 #endif
