@@ -21,12 +21,15 @@ class Track
 private:
     bool isOccupied = false;
     int trackId;
+    bool hasJunction = false;
+    Junction *junction = nullptr;
 
 public:
     Track(int id);
     bool getIsOccupied();
     void setOccupied(bool isOccupied);
     int getTrackId();
+    void setTrackId(int id);
 };
 
 #endif

@@ -6,18 +6,17 @@
 /**
  * The Junction class represents a point in the railway network. It has a unique ID and can connect to other junctions.
  * It's essentially a resource that the RailwaySystem monitors and interacts with.
- * It basically knows the shortest route at a junction based on the destination.
+ * It basically knows the next route at a junction based on the destination.
  */
 class Junction
 {
 private:
-    int id;
-    vector<int> connectedJunctions; // based on trackIds
-    int shortestRouteDistance;
-    SignalController *signal;
+    vector<Track *> routes; // based on trackIds
+    int activeOption;
 
 public:
-    Junction(int id);
+    Track *getActiveTrackId(); // tells system where it points
+    void switchTo(int idx);
 };
 
 #endif

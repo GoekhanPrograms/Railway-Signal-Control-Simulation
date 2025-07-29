@@ -15,6 +15,7 @@ private:
 
 public:
     RailWaySystem(int id, Junction *junction, SignalController *signal);
+    bool approveTrainToMove(int trainId);
 };
 
 #endif

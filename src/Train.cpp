@@ -16,7 +16,7 @@ Train::Train(int id, Track *currentTrack, string destination)
 
 void Train::move(int distance)
 {
-    // Move the train based on the distance
+    
 }
 
 Track &Train::getCurrentTrack()

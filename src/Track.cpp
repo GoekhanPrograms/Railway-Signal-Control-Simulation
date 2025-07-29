@@ -33,3 +33,8 @@ int Track::getTrackId()
 {
     return trackId;
 }
+
+void Track::setTrackId(int trackId)
+{
+    this->trackId = trackId;
+}
