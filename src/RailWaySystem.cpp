@@ -12,8 +12,6 @@ RailWaySystem::RailWaySystem(int id, Junction *junction, SignalController *signa
 
 bool RailWaySystem::approveTrainToMove(int trainId)
 {
-    // -> from signalcontroller: isSafeToEnter(trackId)==true &&
-    // -> from junction: switch trackId based on signal
     Train *train = getTrain(trainId);
     if (!train)
     {
@@ -22,6 +20,15 @@ bool RailWaySystem::approveTrainToMove(int trainId)
 
     Track &currentTrack = train->getCurrentTrack();
     int currentTrackId = currentTrack.getTrackId();
+
+    string destination = train->getDestination();
+    int destinationTrackId = std::stoi(destination.substr(5));
+
+    if (currentTrackId == destinationTrackId)
+    {
+        cout << "Train " << train->getId() << " has reached destination" << endl;
+        return false; // Destination reached
+    }
 
     int nextTrackId;
     if (currentTrack.getHasJunction())

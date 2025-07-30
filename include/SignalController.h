@@ -6,14 +6,12 @@
 class Track;
 
 /**
- *  SignalController
-    • This is like the traffic light manager.
-    • It controls access to tracks — i.e., it sets signals to green/red.
-    • It checks:
-        ○ Is a track safe to enter?
-        ○ Is the next track free?
-    • Based on Train intentions + track status, it sets signals accordingly.
-You can imagine it has access to all tracks and trains.
+ * Railway traffic signal management system
+ *
+ * The SignalController manages railway signals (RED/YELLOW/GREEN) to ensure
+ * safe train movement. It monitors track occupancy, checks if tracks are
+ * safe to enter, and prevents collisions by controlling access to railway
+ * segments. Acts as the safety system for the entire railway network.
  */
 
 enum Signal
@@ -30,11 +28,44 @@ private:
     std::map<int, Track *> tracks;      // Maps track ID to Track pointer
 
 public:
+    /**
+     * Default constructor for signal controller
+     */
     SignalController();
+
+    /**
+     * Checks if a track is safe for a train to enter
+     * @param trackId ID of the track to check
+     * @return true if safe to enter, false otherwise
+     */
     bool isSafeToEnter(int trackId);
+
+    /**
+     * Checks if the next sequential track is free
+     * @param trackId Current track ID
+     * @return true if next track is unoccupied, false otherwise
+     */
     bool isNextTrackFree(int trackId);
+
+    /**
+     * Sets the signal state for a specific track
+     * @param trackId Track to update
+     * @param signal New signal state (RED/YELLOW/GREEN)
+     */
     void setSignal(int trackId, Signal signal);
+
+    /**
+     * Gets the current signal state for a track
+     * @param trackId Track to query
+     * @return Current signal state, defaults to RED if not found
+     */
     Signal getSignal(int trackId);
+
+    /**
+     * Adds a track to the signal controller's management
+     * @param trackId Track identifier
+     * @param track Pointer to track object
+     */
     void addTrack(int trackId, Track *track);
 };
 

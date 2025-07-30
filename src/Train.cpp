@@ -2,11 +2,6 @@
 
 using namespace std;
 
-/**
- * • Train:
- model the train: its ID, position, maybe direction or destination. This is a passive component —
- it reacts to the system but doesn’t make decisions.
- */
 Train::Train(int id, Track *currentTrack, string destination)
 {
     this->id = id;

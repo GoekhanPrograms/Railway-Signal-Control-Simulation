@@ -7,7 +7,7 @@ Junction::Junction(int id) : junctionId(id) {}
 
 int Junction::getNextTrackForDestination(const std::string &destination, int currentTrackId)
 {
-    int targetTrack = std::stoi(destination.substr(5));
+    int targetTrack = std::stoi(destination.substr(5)); // Get the destination track number
 
     if (currentTrackId == 5)
     {

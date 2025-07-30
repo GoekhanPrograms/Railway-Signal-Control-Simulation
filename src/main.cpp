@@ -81,7 +81,7 @@ int main()
     // Simulation
     cout << "Starting Railway Simulation..." << endl;
 
-    for (int step = 0; step < 15; ++step)
+    for (int step = 0; step < 10; ++step)
     {
         cout << "\n--- Simulation Step " << step + 1 << " ---" << endl;
 
@@ -114,7 +114,9 @@ int main()
 
     // Cleanup
     for (Track *track : tracks)
+    {
         delete track;
+    }
     delete train1;
     delete train2;
     delete signalController;

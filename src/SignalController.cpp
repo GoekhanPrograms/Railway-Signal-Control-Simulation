@@ -8,7 +8,7 @@ SignalController::SignalController() {}
 void SignalController::addTrack(int id, Track *track)
 {
     tracks[id] = track;
-    trackSignals[id] = GREEN;
+    trackSignals[id] = GREEN; // Initialize all tracks to GREEN
 }
 
 void SignalController::setSignal(int trackId, Signal signal)
