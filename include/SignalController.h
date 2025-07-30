@@ -1,8 +1,9 @@
 #ifndef SIGNALCONTROLLER_H
 #define SIGNALCONTROLLER_H
-#include "Track.h"
 #include <map>
 #include <vector>
+
+class Track;
 
 /**
  *  SignalController

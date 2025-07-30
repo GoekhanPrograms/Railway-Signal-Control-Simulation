@@ -14,14 +14,14 @@ Train::Train(int id, Track *currentTrack, string destination)
     this->destination = destination;
 }
 
-void Train::move(int distance)
-{
-    
-}
-
 Track &Train::getCurrentTrack()
 {
     return *currentTrack;
+}
+
+void Train::setCurrentTrack(Track *track)
+{
+    this->currentTrack = track;
 }
 
 int Train::getId()

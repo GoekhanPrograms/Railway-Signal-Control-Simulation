@@ -12,8 +12,8 @@ private:
 
 public:
     Train(int id, Track *currentTrack, string destination);
-    void move(int distance);
     Track &getCurrentTrack();
+    void setCurrentTrack(Track *track);
     int getId();
     string getDestination();
     void setDestination(string destination);

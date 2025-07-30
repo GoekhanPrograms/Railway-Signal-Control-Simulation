@@ -1,6 +1,7 @@
 #ifndef JUNCTION_H
 #define JUNCTION_H
 #include <vector>
+#include <string>
 #include "SignalController.h"
 
 /**
@@ -11,12 +12,11 @@
 class Junction
 {
 private:
-    vector<Track *> routes; // based on trackIds
-    int activeOption;
+    int junctionId;
 
 public:
-    Track *getActiveTrackId(); // tells system where it points
-    void switchTo(int idx);
+    Junction(int junctionId);
+    int getNextTrackForDestination(const std::string &destination, int currentTrackId);
 };
 
 #endif

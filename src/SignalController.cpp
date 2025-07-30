@@ -1,4 +1,5 @@
-#include <SignalController.h>
+#include "SignalController.h"
+#include "Track.h"
 
 using namespace std;
 
@@ -7,7 +8,7 @@ SignalController::SignalController() {}
 void SignalController::addTrack(int id, Track *track)
 {
     tracks[id] = track;
-    trackSignals[id] = RED;
+    trackSignals[id] = GREEN;
 }
 
 void SignalController::setSignal(int trackId, Signal signal)
@@ -34,29 +35,25 @@ bool SignalController::isSafeToEnter(int trackId)
     }
 
     Track *track = trackIt->second; // Receive the Track
-    if (getSignal(trackId) == GREEN && isNextTrackFree(trackId) && !track->getIsOccupied())
+
+    if (track->getIsOccupied())
     {
-        return true; // Safe to enter if its Green and next track is free and not occupied
+        setSignal(trackId, RED);
+        return false; // Safe to enter if next track is free and not occupied
     }
 
-    if (track->getIsOccupied() || !isNextTrackFree(trackId))
+    if (!isNextTrackFree(trackId))
     {
-        setSignal(trackId, RED); // Change the signal to RED if not safe to enter
+        setSignal(trackId, YELLOW);
+        return true;
     }
 
-    return false; // Not safe to enter if not safe to enter
+    setSignal(trackId, GREEN); // Change the signal to RED if not safe to enter
+    return true;               // Not safe to enter if not safe to enter
 }
 
 bool SignalController::isNextTrackFree(int trackId)
 {
-    auto trackIt = tracks.find(trackId);
-    if (trackIt == tracks.end())
-    {
-        return false; // Not found
-    }
-
-    Track *track = trackIt->second; // Receive the Track
-
     int nextTrackId = trackId + 1; // Next track's ID
 
     auto nextTrackIt = tracks.find(nextTrackId);

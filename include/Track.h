@@ -30,6 +30,9 @@ public:
     void setOccupied(bool isOccupied);
     int getTrackId();
     void setTrackId(int id);
+    bool getHasJunction() const;
+    void setHasJunction(bool hasJunc, Junction *junc = nullptr);
+    Junction *getJunction() const;
 };
 
 #endif

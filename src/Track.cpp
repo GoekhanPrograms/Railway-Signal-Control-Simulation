@@ -38,3 +38,19 @@ void Track::setTrackId(int trackId)
 {
     this->trackId = trackId;
 }
+
+bool Track::getHasJunction() const
+{
+    return hasJunction;
+}
+
+void Track::setHasJunction(bool hasJunc, Junction *junc)
+{
+    this->hasJunction = hasJunc;
+    this->junction = junc;
+}
+
+Junction *Track::getJunction() const
+{
+    return junction;
+}
