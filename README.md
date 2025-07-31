@@ -11,6 +11,7 @@ This project simulates a railway signal control system using C++. It models trac
 - - Junction: routing logic
 - - SignalController: for track occupancy and signal aspects
 - - Train: movement along tracks
+- - RailWaySystem: coordinating trains, tracks, junctions, and signals
 - Signal states (RED, YELLOW, GREEN) with automatic updates
 - Train movement simulation along defined routes
 - Automatic safety checks to prevent collisions
